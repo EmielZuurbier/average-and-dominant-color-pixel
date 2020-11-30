@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Average and Dominant color calculations</title>
+	<meta name="description" content="Canvas pixel checker which calculates average and dominant colors with Web Workers. Complimented with CSS Houdini.">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="layout">
+		<h1>Average and Dominant colors</h1>
+		<div id="container">
+			<figure id="frame"></figure>
+		</div>
+		<div id="controls">
+			<button id="average" class="button"><span>Average Color</span></button>
+			<button id="split" class="button"><span>Compare Colors</span></button>
+			<!-- <button id="stop" class="button"><span>Stop running</span></button> -->
+			<button id="dominant" class="button"><span>Dominant Color</span></button>
+		</div>
+	</div>
+	<script src="pixel-checker.js"></script>
+</body>
+</html>

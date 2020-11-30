@@ -1,0 +1,140 @@
+:root {
+	--font-family: 'Roboto Mono', monospace;
+	--transition: 1000ms;
+	--easing: cubic-bezier(0.42, 0, 0.12, 0.97);
+}
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-family);
+}
+
+html,
+body,
+.layout {
+	height: 100%;
+	width: 100%;
+}
+
+h1 {
+	grid-area: 1 / 1 / 2 / 2;
+	font-size: 1em;
+	padding: 1rem;
+	mix-blend-mode: overlay;
+	z-index: 1;
+}
+
+.layout {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr;
+}
+
+#container {
+	grid-area: 1 / 1 / 3 / 2;
+	display: grid;
+	grid-template-rows: 1fr 500px 1fr;
+	grid-template-columns: 1fr 750px 1fr;
+	position: relative;
+	background-image: linear-gradient(
+		90deg, 
+		var(--average-color) 0%,
+		var(--average-color) var(--color-stop),
+		var(--dominant-color) var(--color-stop),
+		var(--dominant-color) 100%
+	);
+	transition: var(--transition) var(--easing);
+	transition-property: --average-color, --color-stop, --dominant-color ;
+	overflow: hidden;
+}
+
+#controls {
+	grid-area: 3 / 1 / 4 / 2;
+	display: flex;
+	box-shadow: 0 -5px 5px 0 rgba(0, 0, 0, 0.05);
+	z-index: 1;
+}
+
+#frame {
+	grid-area: 2 / 2 / 3 / 3;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	border-radius: 0.5em;
+	box-shadow: 0 0 2em 0.5em rgba(0, 0, 0, 0.25);
+	width: 750px;
+	height: 500px;
+	overflow: hidden;
+	z-index: 1
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#frame > img {
+	grid-area: 1 / 1 / 2 / 2;
+	object-fit: cover;
+	opacity: 0;
+	animation: fade-in var(--transition) var(--easing) forwards;
+	width: 100%;
+	height: 100%;
+}
+
+.button {
+	flex: 1 1 auto;
+	font-family: var(--font-family);
+	appearance: none;
+	border: 0;
+	padding: 1em;
+	background-color: #ffffff;
+	color: #555555;
+	cursor: pointer;
+	transition: var(--transition) var(--easing);
+	transition-property: background-image, background-color, --dominant-color, --average-color;
+}
+
+.button:hover {
+	transition-duration: 150ms;
+}
+
+.button > span {
+	color: #ffffff;
+	mix-blend-mode: difference;
+}
+
+#split {
+	background-image: linear-gradient(
+		90deg, 
+		var(--average-color),
+		var(--dominant-color)
+	);
+}
+
+#average {
+	background-color: var(--average-color);
+}
+
+#dominant {
+	background-color: var(--dominant-color);
+}
+
+#split:hover {
+	--average-color: #ffffff;
+	--dominant-color: #ffffff;
+}
+
+#average:hover,
+#dominant:hover {
+	background: #ffffff;
+}
