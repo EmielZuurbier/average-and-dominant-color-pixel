@@ -196,9 +196,7 @@ const run = async () => {
 	const { data } = getImageData();
 
 	// Send the data and wait for a response.
-	const [ averageColor, dominantColor ] = await Promise.all(
-		workerCalculators.map(calculator => calculator(data))
-	);
+	const [ averageColor, dominantColor ] = await calculate(data);
 	
 	// Add the image to the DOM
 	frame.append(image);
