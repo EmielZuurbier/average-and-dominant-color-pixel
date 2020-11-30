@@ -104,11 +104,7 @@ h1 {
 	color: #555555;
 	cursor: pointer;
 	transition: var(--transition) var(--easing);
-	transition-property: background-image, background-color, --dominant-color, --average-color;
-}
-
-.button:hover {
-	transition-duration: 150ms;
+	transition-property: background-image, --dominant-color, --average-color;
 }
 
 .button > span {
@@ -137,7 +133,10 @@ h1 {
 	--dominant-color: #ffffff;
 }
 
-#average:hover,
+#average:hover {
+	--average-color: #ffffff;
+}
+
 #dominant:hover {
-	background: #ffffff;
+	--dominant-color: #ffffff;
 }
